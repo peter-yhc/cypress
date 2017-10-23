@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class TickerService {
@@ -10,7 +11,7 @@ export class TickerService {
     getSymbols() {
         return this.http.get('http://localhost:8000/api/symbols')
             .map(res => {
-                return res.json().data
-            })
+                return res.json().data;
+            });
     }
 }

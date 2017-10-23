@@ -1,11 +1,15 @@
 import {TestBed, async} from '@angular/core/testing';
 import {AppComponent} from './app.component';
+import {DashboardGraphComponent} from './dashboard-graph/dashboard-graph.component';
+import {AccountOverviewComponent} from './account-overview/account-overview.component';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                AppComponent
+                AppComponent,
+                DashboardGraphComponent,
+                AccountOverviewComponent
             ],
         }).compileComponents();
     }));
