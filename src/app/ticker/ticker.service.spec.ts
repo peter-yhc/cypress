@@ -1,9 +1,9 @@
 import {inject, TestBed} from '@angular/core/testing';
 
 import {TickerService} from './ticker.service';
-import {BaseRequestOptions, Http, HttpModule, Response, ResponseOptions} from "@angular/http";
-import {MockBackend} from "@angular/http/testing";
-import 'rxjs/add/operator/map'
+import {BaseRequestOptions, Http, HttpModule, Response, ResponseOptions} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
+import 'rxjs/add/operator/map';
 
 describe('TickerService', () => {
     beforeEach(() => {
@@ -24,7 +24,7 @@ describe('TickerService', () => {
         });
     });
 
-    it('ticker should be able to retrieve symbols',
+    it('ticker should be able to retrieve symbols', function(done) {
         inject([TickerService, MockBackend], (service: TickerService, mockBackend) => {
             const mockResponse = {
                 data: [
@@ -45,6 +45,30 @@ describe('TickerService', () => {
                 expect(symbols[0].symbol).toBe('GOOG');
                 expect(symbols[1].exchange).toBe('NASDAQ');
                 expect(symbols[1].symbol).toBe('MSFT');
+                done();
             });
-        }));
+        })();
+    });
+
+    it('ticker should use cached data', function (done) {
+        inject([TickerService], (service: TickerService) => {
+            const cachedData = [
+                {exchange: 'NASDAQ', symbol: 'FB'},
+                {exchange: 'NASDAQ', symbol: 'AAPL'}
+            ];
+
+            service.cachedResults = cachedData;
+
+            service.getSymbols().subscribe(symbols => {
+                console.log('Test 2 Symbols: ' + JSON.stringify(symbols));
+                expect(symbols.length).toBe(2);
+                expect(symbols[0].exchange).toBe('NASDAQ');
+                expect(symbols[0].symbol).toBe('FB');
+                expect(symbols[1].exchange).toBe('NASDAQ');
+                expect(symbols[1].symbol).toBe('AAPL');
+                done();
+            });
+        })();
+    });
 });
+
