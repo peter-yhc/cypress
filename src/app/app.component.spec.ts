@@ -1,7 +1,7 @@
 import {TestBed, async} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {DashboardGraphComponent} from './dashboard-graph/dashboard-graph.component';
-import {AccountOverviewComponent} from './account-overview/account-overview.component';
+import {AccountOverviewComponent} from './account/account-overview/account-overview.component';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -27,6 +27,6 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Welcome to Cypress');
+        expect(compiled.querySelector('.brand-logo').textContent).toContain('Cypress');
     }));
 });
