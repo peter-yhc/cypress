@@ -1,4 +1,3 @@
-import {MaterializeModule} from 'angular2-materialize';
 import {BrowserModule} from '@angular/platform-browser';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
@@ -14,8 +13,7 @@ import {DashboardGraphComponent} from './dashboard-graph/dashboard-graph.compone
         DashboardGraphComponent
     ],
     imports: [
-        BrowserModule,
-        MaterializeModule
+        BrowserModule
     ],
     providers: [],
     bootstrap: [AppComponent],
