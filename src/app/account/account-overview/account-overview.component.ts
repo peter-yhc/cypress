@@ -1,5 +1,6 @@
 
 import {Component} from '@angular/core';
+import {InvestmentAccount} from '../../model/InvestmentAccount';
 
 @Component({
     selector: 'app-account-overview',
@@ -7,4 +8,5 @@ import {Component} from '@angular/core';
 })
 export class AccountOverviewComponent {
 
+    investmentAccount = new InvestmentAccount();
 }

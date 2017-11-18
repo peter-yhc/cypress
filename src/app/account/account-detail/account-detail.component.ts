@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {InvestmentAccount} from '../../model/InvestmentAccount';
 
 @Component({
     selector: 'app-account-detail',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AccountDetailComponent implements OnInit {
 
-    @Input() accountName: String;
+    @Input() investmentAccount: InvestmentAccount;
 
     constructor() {
     }

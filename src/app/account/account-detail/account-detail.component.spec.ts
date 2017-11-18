@@ -1,12 +1,13 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AccountDetailComponent} from './account-detail.component';
+import {InvestmentAccount} from '../../model/InvestmentAccount';
 
 describe('AccountDetailComponent', () => {
     let component: AccountDetailComponent;
     let fixture: ComponentFixture<AccountDetailComponent>;
 
-    let expectedBankAccount: String;
+    let expectedInvestmentAccount: InvestmentAccount;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -19,8 +20,8 @@ describe('AccountDetailComponent', () => {
         fixture = TestBed.createComponent(AccountDetailComponent);
         component = fixture.componentInstance;
 
-        expectedBankAccount = 'Bank Account 1';
-        component.accountName = expectedBankAccount;
+        expectedInvestmentAccount = new InvestmentAccount('Bank Account 1');
+        component.investmentAccount = expectedInvestmentAccount;
         fixture.detectChanges();
     });
 
@@ -30,6 +31,6 @@ describe('AccountDetailComponent', () => {
 
     it('should show account name', () => {
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('p').textContent).toContain(expectedBankAccount);
+        expect(compiled.querySelector('p').textContent).toContain('Bank Account 1');
     });
 });
