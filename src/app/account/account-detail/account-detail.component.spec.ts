@@ -20,7 +20,7 @@ describe('AccountDetailComponent', () => {
         fixture = TestBed.createComponent(AccountDetailComponent);
         component = fixture.componentInstance;
 
-        expectedInvestmentAccount = new InvestmentAccount('Bank Account 1');
+        expectedInvestmentAccount = new InvestmentAccount('Bank Account 1', 100.00);
         component.investmentAccount = expectedInvestmentAccount;
         fixture.detectChanges();
     });
@@ -31,6 +31,11 @@ describe('AccountDetailComponent', () => {
 
     it('should show account name', () => {
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('p').textContent).toContain('Bank Account 1');
+        expect(compiled.querySelector('div').textContent).toContain('Bank Account 1');
+    });
+
+    it('should show account balance', () => {
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('div').textContent).toContain('$100.00');
     });
 });

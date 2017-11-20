@@ -1,6 +1,6 @@
 export class InvestmentAccount {
 
-    constructor(public name = '') {
+    constructor(public name = '', public marketValue = 0) {
 
     }
 
