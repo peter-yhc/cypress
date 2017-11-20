@@ -1,0 +1,7 @@
+.full-height {
+    min-height: 100%;
+}
+
+::ng-deep .content-page {
+    border: 1px solid black;
+}
