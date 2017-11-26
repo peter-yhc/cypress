@@ -5,27 +5,25 @@
         <table>
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Item Name</th>
-                <th>Item Price</th>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Latest Price</th>
+                <th>Intraday Change</th>
+                <th>Book Value</th>
+                <th>Market Value</th>
+                <th>Unrealised Gains</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
-                <td>$0.87</td>
-            </tr>
-            <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-                <td>$3.76</td>
-            </tr>
-            <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-                <td>$7.00</td>
+            <tr *ngFor="let stock of investmentAccount.stocks">
+                <td>{{ stock.symbol }}</td>
+                <!--<td>{{ stock.quantity }}</td>-->
+                <!--<td>{{ stock.latestPrice }}</td>-->
+                <!--<td>{{ stock.intraDayChange }}</td>-->
+                <!--<td>{{ stock.intraDayChangePct }}</td>-->
+                <!--<td>{{ stock.bookValue }}</td>-->
+                <!--<td>{{ stock.marketValue }}</td>-->
             </tr>
             </tbody>
         </table>
