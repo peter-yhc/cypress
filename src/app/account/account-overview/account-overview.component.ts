@@ -1,6 +1,6 @@
 
 import {Component} from '@angular/core';
-import {InvestmentAccount} from '../../model/InvestmentAccount';
+import {CypressAccount} from '../../model/InvestmentAccount';
 
 @Component({
     selector: 'app-account-overview',
@@ -9,5 +9,5 @@ import {InvestmentAccount} from '../../model/InvestmentAccount';
 })
 export class AccountOverviewComponent {
 
-    investmentAccount = new InvestmentAccount('Test Account 1', 23400.01);
+    investmentAccount = new CypressAccount('Test Account 1', 23400.01);
 }
