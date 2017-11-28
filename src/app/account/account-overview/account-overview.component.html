@@ -1,7 +1,7 @@
 <div class="row" style="padding: 1em">
     <div class="col s12 content-page">
         <h5>{{ investmentAccount.name }}</h5>
-        {{ investmentAccount.marketValue | currency:'USD':true:'2.2-2' }}
+        {{ investmentAccount.marketValue | currency:'USD':true:'1.2-2' }}
         <table>
             <thead>
             <tr>
@@ -18,17 +18,15 @@
             <tbody>
             <tr *ngFor="let stock of investmentAccount.stocks">
                 <td>{{ stock.symbol }}</td>
-                <!--<td>{{ stock.quantity }}</td>-->
-                <!--<td>{{ stock.latestPrice }}</td>-->
-                <!--<td>{{ stock.intraDayChange }}</td>-->
-                <!--<td>{{ stock.intraDayChangePct }}</td>-->
-                <!--<td>{{ stock.bookValue }}</td>-->
-                <!--<td>{{ stock.marketValue }}</td>-->
+                <td>{{ stock.quantity }}</td>
+                <td>{{ stock.latestPrice }}</td>
+                <td>{{ stock.intraDayChange }} ({{ stock.intraDayChangePct | percent: '1.2-2' }})</td>
+                <td>{{ stock.bookValue | currency:'USD':true:'1.2-2' }}</td>
+                <td>{{ stock.marketValue | currency:'USD':true:'1.2-2' }}</td>
+                <td class="gains">{{ stock.gains | currency:'USD':true:'1.2-2' }} ({{ stock.gainsPct | percent: '1.2-2' }})</td>
             </tr>
             </tbody>
         </table>
-
-
     </div>
 </div>
 
